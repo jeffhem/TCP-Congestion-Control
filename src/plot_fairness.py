@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import csv
 import argparse
 
+# TCP fairness graph: bandwidth vs time
+
 parser = argparse.ArgumentParser("Congestion Topo")
 parser.add_argument("cca", help="congestion control algorithm", type=str)
 parser.add_argument("delay", help="propagation delay", type=int)
