@@ -14,12 +14,12 @@ h1time = []
 h1Data = []
 h2time = []
 h2Data = []
-yrange = 1500
+yrange = 2000
 
 if (delay == 81):
-    yrange = 4800
+    yrange = 5600
 if (delay == 162):
-    yrange = 9500
+    yrange = 12000
 
 with open('./data/tcpprobe/data_%s_%s' % (cca, delay)) as csvfile:
     plots = csv.reader(csvfile, delimiter=' ')
@@ -36,10 +36,11 @@ plt.plot(h1time, h1Data, label="h1 to s1")
 plt.plot(h2time, h2Data, label="h2 to s2")
 plt.ylabel('cwnd(mss)')
 plt.xlabel('time(s)')
-plt.title('iperf test %s w/ %sms delay' % (delay, cca))
+plt.title('iperf test %s w/ %sms delay' % (cca, delay))
 plt.rc('lines', linewidth=1)
 axes = plt.gca()
 axes.set_ylim([0,yrange])
+plt.rcParams["figure.figsize"] = (20,8)
 plt.legend()
 plt.grid(True)
 plt.show()
